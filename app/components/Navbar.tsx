@@ -78,7 +78,7 @@ export default function Navbar() {
             borderRadius: "50%",
             boxShadow: "0 0 10px var(--accent)"
           }}></span>
-          Chrono X1
+          Cheetos
         </a>
 
         {/* Center Links — Desktop */}
