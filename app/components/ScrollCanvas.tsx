@@ -12,7 +12,7 @@ const SCROLL_DISTANCE = 5000; // px of scroll travel for the full sequence
 
 function getFrameSrc(index: number): string {
   const num = String(index).padStart(3, "0");
-  return `/exploded-view-of-watch/ezgif-frame-${num}.jpg`;
+  return `/cheetos-run/ezgif-frame-${num}.jpg`;
 }
 
 /* ──────────────────────── Story Sections ──────────────────────── */
