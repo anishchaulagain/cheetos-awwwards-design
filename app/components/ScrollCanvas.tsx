@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TOTAL_FRAMES = 293;
+const TOTAL_FRAMES = 148;
 const SCROLL_DISTANCE = 5000; // px of scroll travel for the full sequence
 
 function getFrameSrc(index: number): string {
