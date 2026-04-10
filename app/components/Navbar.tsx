@@ -49,7 +49,7 @@ export default function Navbar() {
           backdropFilter: scrolled ? "blur(32px) saturate(200%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(32px) saturate(200%)" : "none",
           border: scrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid transparent",
-          borderBottom: !scrolled ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(255, 255, 255, 0.1)",
+          borderBottom: !scrolled ? "1px solid rgba(255, 255, 255, 0.05)" : "none",
           borderRadius: scrolled ? "9999px" : "0", // Fully rounded capsule
           boxShadow: scrolled ? "0 10px 40px rgba(0, 0, 0, 0.3)" : "none",
           pointerEvents: "auto",
