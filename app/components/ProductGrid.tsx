@@ -9,24 +9,24 @@ const products = [
     name: "AX1 Stealth",
     description: "Matte black titanium case with a skeletonized dial.",
     price: "$12,500",
-    color: "rgba(255, 255, 255, 0.03)",
-    glow: "rgba(255, 255, 255, 0.15)",
+    color: "rgba(0, 0, 0, 0.03)",
+    glow: "rgba(0, 0, 0, 0.1)",
   },
   {
     id: 2,
     name: "Oceanic Blue",
     description: "Deep sea blue ceramic bezel with a sunburst dial.",
     price: "$14,200",
-    color: "rgba(0, 180, 255, 0.03)",
-    glow: "rgba(0, 180, 255, 0.3)",
+    color: "rgba(0, 120, 255, 0.04)",
+    glow: "rgba(0, 120, 255, 0.2)",
   },
   {
     id: 3,
     name: "Rose Gold Apex",
     description: "18k Rose gold accents with carbon fiber composite.",
     price: "$18,900",
-    color: "rgba(255, 120, 50, 0.03)",
-    glow: "rgba(255, 120, 50, 0.3)",
+    color: "rgba(255, 80, 0, 0.04)",
+    glow: "rgba(255, 80, 0, 0.2)",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function ProductGrid() {
       id="products"
       style={{
         padding: "8rem 2rem",
-        background: "var(--bg-primary, #0A0A0A)",
+        background: "var(--bg-primary-light, #F8F9FA)",
         position: "relative",
         zIndex: 10,
       }}
@@ -57,10 +57,10 @@ export default function ProductGrid() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           style={{ textAlign: "center", marginBottom: "5rem" }}
         >
-          <div style={{ color: "#00D6FF", fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>
+          <div style={{ color: "#007BFF", fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem", fontWeight: 600 }}>
             The Collection
           </div>
-          <h2 style={{ fontSize: "3rem", fontWeight: 300, letterSpacing: "-0.02em", margin: 0, color: "#fff" }}>
+          <h2 style={{ fontSize: "3rem", fontWeight: 400, letterSpacing: "-0.02em", margin: 0, color: "#111" }}>
             Curated Excellence.
           </h2>
         </motion.div>
@@ -80,14 +80,14 @@ export default function ProductGrid() {
               transition={{ duration: 0.8, delay: index * 0.2 + 0.2, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{
                 y: -10,
-                borderColor: product.glow,
+                borderColor: "rgba(0,0,0,0.15)",
                 boxShadow: `0 20px 40px -10px ${product.glow}`,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
               style={{
                 position: "relative",
-                background: product.color,
-                border: "1px solid rgba(255, 255, 255, 0.05)",
+                background: "#ffffff",
+                border: "1px solid rgba(0, 0, 0, 0.05)",
                 borderRadius: "24px",
                 padding: "3rem 2rem",
                 display: "flex",
@@ -96,8 +96,7 @@ export default function ProductGrid() {
                 textAlign: "center",
                 overflow: "hidden",
                 cursor: "pointer",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
               }}
             >
               {/* Abstract decorative element in place of product image */}
@@ -122,15 +121,15 @@ export default function ProductGrid() {
                   width: "70%",
                   height: "70%",
                   borderRadius: "50%",
-                  background: "var(--bg-primary, #0A0A0A)",
-                  opacity: 0.8
+                  background: "#ffffff",
+                  opacity: 0.95
                 }} />
               </motion.div>
 
-              <h3 style={{ fontSize: "1.5rem", fontWeight: 400, color: "#fff", marginBottom: "1rem", letterSpacing: "0.02em" }}>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: 500, color: "#222", marginBottom: "1rem", letterSpacing: "0.01em" }}>
                 {product.name}
               </h3>
-              <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "2.5rem", flexGrow: 1 }}>
+              <p style={{ fontSize: "0.95rem", color: "rgba(0,0,0,0.6)", lineHeight: 1.6, marginBottom: "2.5rem", flexGrow: 1 }}>
                 {product.description}
               </p>
               
@@ -139,22 +138,23 @@ export default function ProductGrid() {
                 justifyContent: "space-between",
                 alignItems: "center",
                 width: "100%",
-                borderTop: "1px solid rgba(255,255,255,0.1)",
+                borderTop: "1px solid rgba(0,0,0,0.08)",
                 paddingTop: "1.5rem"
               }}>
-                <span style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", fontWeight: 400, letterSpacing: "0.05em" }}>
+                <span style={{ fontSize: "1.25rem", color: "rgba(0,0,0,0.9)", fontWeight: 500, letterSpacing: "0.02em" }}>
                   {product.price}
                 </span>
                 <motion.button
-                  whileHover={{ scale: 1.05, background: "rgba(255,255,255,1)", color: "#000" }}
+                  whileHover={{ scale: 1.05, background: "#111", color: "#fff" }}
                   whileTap={{ scale: 0.95 }}
                   style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    color: "#fff",
+                    background: "rgba(0,0,0,0.03)",
+                    border: "1px solid rgba(0,0,0,0.15)",
+                    color: "#222",
                     padding: "0.6rem 1.2rem",
                     borderRadius: "50px",
                     fontSize: "0.8rem",
+                    fontWeight: 500,
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                     cursor: "pointer",
