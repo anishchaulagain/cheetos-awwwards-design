@@ -238,7 +238,7 @@ export default function ProductGrid() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
