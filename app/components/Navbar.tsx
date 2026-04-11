@@ -45,13 +45,13 @@ export default function Navbar() {
           justifyContent: "space-between",
           padding: scrolled ? "0 2rem" : "0 clamp(1.5rem, 4vw, 4rem)",
           transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-          background: scrolled ? "rgba(10, 10, 10, 0.6)" : "transparent",
+          background: scrolled ? "rgba(255, 255, 255, 0.75)" : "transparent",
           backdropFilter: scrolled ? "blur(32px) saturate(200%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(32px) saturate(200%)" : "none",
-          border: scrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid transparent",
-          borderBottom: !scrolled ? "1px solid rgba(255, 255, 255, 0.05)" : "none",
+          border: scrolled ? "1px solid rgba(0, 0, 0, 0.08)" : "1px solid transparent",
+          borderBottom: !scrolled ? "1px solid rgba(0, 0, 0, 0.06)" : "none",
           borderRadius: scrolled ? "9999px" : "0", // Fully rounded capsule
-          boxShadow: scrolled ? "0 10px 40px rgba(0, 0, 0, 0.3)" : "none",
+          boxShadow: scrolled ? "0 10px 40px rgba(0, 0, 0, 0.05)" : "none",
           pointerEvents: "auto",
         }}
       >
@@ -62,7 +62,7 @@ export default function Navbar() {
             fontSize: "1.2rem",
             fontWeight: 600,
             letterSpacing: "0.08em",
-            color: "rgba(255,255,255,0.95)",
+            color: "#111",
             textDecoration: "none",
             textTransform: "uppercase",
             display: "flex",
@@ -74,9 +74,9 @@ export default function Navbar() {
             display: "inline-block", 
             width: "10px", 
             height: "10px", 
-            background: "var(--accent)", 
+            background: "var(--accent, #00D6FF)", 
             borderRadius: "50%",
-            boxShadow: "0 0 10px var(--accent)"
+            boxShadow: "0 0 10px rgba(0, 214, 255, 0.5)"
           }}></span>
           Cheetos
         </a>
@@ -98,18 +98,18 @@ export default function Navbar() {
                 fontSize: "0.85rem",
                 fontWeight: 500,
                 letterSpacing: "0.05em",
-                color: "rgba(255,255,255,0.7)",
+                color: "rgba(0,0,0,0.55)",
                 textDecoration: "none",
                 transition: "all 0.3s ease",
                 textTransform: "uppercase",
                 position: "relative",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "rgba(255,255,255,1)";
-                e.currentTarget.style.textShadow = "0 0 8px rgba(255,255,255,0.3)";
+                e.currentTarget.style.color = "rgba(0,0,0,0.95)";
+                e.currentTarget.style.textShadow = "0 0 1px rgba(0,0,0,0.1)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+                e.currentTarget.style.color = "rgba(0,0,0,0.55)";
                 e.currentTarget.style.textShadow = "none";
               }}
             >
@@ -126,22 +126,24 @@ export default function Navbar() {
             padding: "0.6rem 1.8rem",
             fontSize: "0.8rem",
             borderRadius: "9999px",
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            color: "white",
+            background: "rgba(0, 0, 0, 0.04)",
+            border: "1px solid rgba(0, 0, 0, 0.1)",
+            color: "#111",
             textDecoration: "none",
             transition: "all 0.3s ease",
-            fontWeight: 500,
+            fontWeight: 600,
             textTransform: "uppercase",
             letterSpacing: "0.05em"
           }}
           onMouseEnter={(e) => {
-             e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-             e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+             e.currentTarget.style.background = "#111";
+             e.currentTarget.style.color = "#fff";
+             e.currentTarget.style.borderColor = "#111";
           }}
           onMouseLeave={(e) => {
-             e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
-             e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+             e.currentTarget.style.background = "rgba(0, 0, 0, 0.04)";
+             e.currentTarget.style.color = "#111";
+             e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.1)";
           }}
         >
           Order Now
@@ -154,8 +156,8 @@ export default function Navbar() {
           aria-label="Toggle menu"
           style={{
             display: "none",
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
+            background: "rgba(0, 0, 0, 0.04)",
+            border: "1px solid rgba(0, 0, 0, 0.1)",
             borderRadius: "50%",
             cursor: "pointer",
             padding: "10px",
@@ -167,7 +169,7 @@ export default function Navbar() {
             height="20"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="rgba(255,255,255,0.9)"
+            stroke="#111"
             strokeWidth="2"
             strokeLinecap="round"
           >
@@ -194,16 +196,16 @@ export default function Navbar() {
               top: "calc(100% + 1rem)",
               left: "1rem",
               right: "1rem",
-              background: "rgba(10, 10, 10, 0.8)",
+              background: "rgba(255, 255, 255, 0.95)",
               backdropFilter: "blur(24px) saturate(200%)",
               WebkitBackdropFilter: "blur(24px) saturate(200%)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              border: "1px solid rgba(0,0,0,0.08)",
               borderRadius: "24px",
               padding: "1.5rem 2rem",
               display: "flex",
               flexDirection: "column",
               gap: "1.25rem",
-              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
             }}
           >
             {navLinks.map((link) => (
@@ -214,12 +216,12 @@ export default function Navbar() {
                 style={{
                   fontSize: "1rem",
                   fontWeight: 500,
-                  color: "rgba(255,255,255,0.8)",
+                  color: "rgba(0,0,0,0.7)",
                   textDecoration: "none",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
                   padding: "0.5rem 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.05)"
+                  borderBottom: "1px solid rgba(0,0,0,0.05)"
                 }}
               >
                 {link.label}
@@ -233,8 +235,8 @@ export default function Navbar() {
                 fontWeight: 600,
                 textAlign: "center",
                 marginTop: "0.5rem",
-                background: "white",
-                color: "black",
+                background: "#111",
+                color: "#fff",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 textTransform: "uppercase",
