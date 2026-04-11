@@ -33,7 +33,7 @@ const STORIES: StoryBlock[] = [
     startPct: 0,
     endPct: 0.14,
     align: "center",
-    heading: "Buddha Airlines",
+    heading: "Cheetos",
     lines: [
       "Time, perfected.",
       "A mechanical masterpiece engineered for precision and presence.",
