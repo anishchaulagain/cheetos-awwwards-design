@@ -31,7 +31,7 @@ const STORIES: StoryBlock[] = [
   {
     id: "hero",
     startPct: 0,
-    endPct: 0.14,
+    endPct: 0.3,
     align: "center",
     heading: "Cheetos",
     lines: [
