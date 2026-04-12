@@ -32,12 +32,12 @@ export default function SpecsSection() {
       style={{
         position: "relative",
         padding: "10rem 2rem",
-        background: "var(--bg-secondary)",
+        background: "#FFFFFF",
         overflow: "hidden",
         perspective: "1000px",
       }}
     >
-      {/* Background glow for parallax */}
+      {/* Background glow for parallax - softened for light theme */}
       <motion.div
         style={{
           position: "absolute",
@@ -45,7 +45,7 @@ export default function SpecsSection() {
           left: "20%",
           width: "60vw",
           height: "60vw",
-          background: "radial-gradient(circle, rgba(0, 214, 255, 0.03) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(0, 80, 255, 0.05) 0%, transparent 60%)",
           pointerEvents: "none",
           zIndex: 0,
           y: glowY,
@@ -66,10 +66,10 @@ export default function SpecsSection() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ textAlign: "center", marginBottom: "5rem" }}
         >
-          <div className="caption" style={{ marginBottom: "1rem", color: "#00D6FF" }}>
+          <div className="caption" style={{ marginBottom: "1rem", color: "#0050FF" }}>
             Technical Specifications
           </div>
-          <h2 className="heading-lg">Precision in every detail.</h2>
+          <h2 className="heading-lg" style={{ color: "#050505" }}>Precision in every detail.</h2>
         </motion.div>
 
         <div
@@ -101,7 +101,7 @@ export default function SpecsSection() {
                 transformOrigin: "top center",
               }}
             >
-              {/* Animated bottom border */}
+              {/* Animated bottom border - Dark for light theme */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={isInView ? { scaleX: 1 } : {}}
@@ -116,7 +116,7 @@ export default function SpecsSection() {
                   left: 0,
                   width: "100%",
                   height: "1px",
-                  background: "linear-gradient(90deg, rgba(255,255,255,0.1), transparent)",
+                  background: "linear-gradient(90deg, rgba(0,0,0,0.08), transparent)",
                   transformOrigin: "left center",
                 }}
               />
@@ -124,7 +124,7 @@ export default function SpecsSection() {
                 style={{
                   fontSize: "0.80rem",
                   fontWeight: 400,
-                  color: "rgba(255,255,255,0.4)",
+                  color: "rgba(0,0,0,0.5)",
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                 }}
@@ -135,7 +135,7 @@ export default function SpecsSection() {
                 style={{
                   fontSize: "1rem",
                   fontWeight: 500,
-                  color: "rgba(255,255,255,0.9)",
+                  color: "rgba(0,0,0,0.9)",
                   textAlign: "right",
                 }}
               >
