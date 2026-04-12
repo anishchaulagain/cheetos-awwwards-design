@@ -7,12 +7,12 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TOTAL_FRAMES = 148;
+const TOTAL_FRAMES = 240;
 const SCROLL_DISTANCE = 5000; // px of scroll travel for the full sequence
 
 function getFrameSrc(index: number): string {
   const num = String(index).padStart(3, "0");
-  return `/cheetos-run/ezgif-frame-${num}.jpg`;
+  return `/horse-run/ezgif-frame-${num}.jpg`;
 }
 
 /* ──────────────────────── Story Sections ──────────────────────── */
