@@ -19,11 +19,11 @@ export default function CTASection() {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        background: "var(--bg-primary)",
+        background: "#FFFFFF",
         overflow: "hidden",
       }}
     >
-      {/* Background glow */}
+      {/* Background glow - softened for light theme */}
       <div
         style={{
           position: "absolute",
@@ -33,7 +33,7 @@ export default function CTASection() {
           width: "600px",
           height: "600px",
           background:
-            "radial-gradient(ellipse at center, rgba(0,80,255,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(0,80,255,0.04) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -44,7 +44,7 @@ export default function CTASection() {
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         style={{ position: "relative", zIndex: 1, maxWidth: "700px" }}
       >
-        <div className="caption" style={{ marginBottom: "1.5rem", color: "#00D6FF" }}>
+        <div className="caption" style={{ marginBottom: "1.5rem", color: "#0050FF" }}>
           The Complete Experience
         </div>
 
@@ -52,7 +52,8 @@ export default function CTASection() {
           className="heading-lg"
           style={{
             marginBottom: "1.5rem",
-            textShadow: "0 0 60px rgba(0,80,255,0.1)",
+            color: "#050505",
+            textShadow: "none",
           }}
         >
           Every second, elevated.
@@ -64,6 +65,7 @@ export default function CTASection() {
             marginBottom: "3rem",
             maxWidth: "480px",
             margin: "0 auto 3rem",
+            color: "rgba(0,0,0,0.7)",
           }}
         >
           Built with purpose. Designed for legacy. The ANISH Chrono X1
@@ -82,7 +84,14 @@ export default function CTASection() {
           <a href="#" className="btn-primary">
             <span>Discover the Watch</span>
           </a>
-          <a href="#specs" className="btn-secondary">
+          <a 
+            href="#specs" 
+            className="btn-secondary"
+            style={{ 
+              borderColor: "rgba(0,0,0,0.15)", 
+              color: "#050505"
+            }}
+          >
             View Specifications
           </a>
         </div>
