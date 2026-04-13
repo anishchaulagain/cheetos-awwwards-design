@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 const TOTAL_FRAMES = 240;
-const SCROLL_DISTANCE = 5000; // px of scroll travel for the full sequence
+const SCROLL_DISTANCE = 10000; // px of scroll travel for the full sequence
 
 function getFrameSrc(index: number): string {
   const num = String(index).padStart(3, "0");
