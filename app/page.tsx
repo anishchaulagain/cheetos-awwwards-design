@@ -5,6 +5,7 @@ import ScrollCanvas from "./components/ScrollCanvas";
 import LogoMarquee from "./components/LogoMarquee";
 import CTASection from "./components/CTASection";
 import SpecsSection from "./components/SpecsSection";
+import ShippingInfo from "./components/ShippingInfo";
 import ProductGrid from "./components/ProductGrid";
 import Footer from "./components/Footer";
 
@@ -34,6 +35,9 @@ export default function Home() {
 
       {/* Specifications */}
       <SpecsSection />
+
+      {/* Shipping and Delivery Info */}
+      <ShippingInfo />
 
       {/* CTA Section */}
       <CTASection />
