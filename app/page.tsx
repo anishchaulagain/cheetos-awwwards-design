@@ -2,6 +2,7 @@
 
 import Navbar from "./components/Navbar";
 import ScrollCanvas from "./components/ScrollCanvas";
+import LogoMarquee from "./components/LogoMarquee";
 import CTASection from "./components/CTASection";
 import SpecsSection from "./components/SpecsSection";
 import ProductGrid from "./components/ProductGrid";
@@ -24,6 +25,9 @@ export default function Home() {
 
       {/* Scroll-linked image sequence + story overlays */}
       <ScrollCanvas />
+
+      {/* Infinite scrolling brand logos */}
+      <LogoMarquee />
 
       {/* Product Grid */}
       <ProductGrid />
