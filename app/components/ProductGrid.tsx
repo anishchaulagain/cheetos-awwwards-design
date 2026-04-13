@@ -1,244 +1,279 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 
-const products = [
+const allProducts = [
   {
     id: 1,
-    name: "AX1 Stealth",
-    description: "Matte black titanium case with a skeletonized dial.",
-    price: "$12,500",
-    color: "rgba(0, 0, 0, 0.03)",
-    glow: "rgba(0, 0, 0, 0.1)",
+    name: "Aero-Whiz Drone",
+    description: "Silent rotors and smart sensors for indoor flight fun.",
+    price: "$49.99",
+    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=400&h=400",
   },
   {
     id: 2,
-    name: "Oceanic Blue",
-    description: "Deep sea blue ceramic bezel with a sunburst dial.",
-    price: "$14,200",
-    color: "rgba(0, 120, 255, 0.04)",
-    glow: "rgba(0, 120, 255, 0.2)",
+    name: "Magical Forest Set",
+    description: "Hand-carved wooden wonders that grow with their imagination.",
+    price: "$34.50",
+    image: "https://images.unsplash.com/photo-1587654780288-6600c74e8d38?auto=format&fit=crop&q=80&w=400&h=400",
   },
   {
     id: 3,
-    name: "Rose Gold Apex",
-    description: "18k Rose gold accents with carbon fiber composite.",
-    price: "$18,900",
-    color: "rgba(255, 80, 0, 0.04)",
-    glow: "rgba(255, 80, 0, 0.2)",
+    name: "Cosmo Buddy",
+    description: "An AI companion designed for teaching coding basics to kids.",
+    price: "$89.00",
+    image: "https://images.unsplash.com/photo-1566576721346-d46dd89ba6e1?auto=format&fit=crop&q=80&w=400&h=400",
+  },
+  {
+    id: 4,
+    name: "Neon Architect",
+    description: "Bioluminescent building blocks that glow in the dark.",
+    price: "$29.99",
+    image: "https://images.unsplash.com/photo-1500995617113-cf78940737ce?auto=format&fit=crop&q=80&w=400&h=400",
+  },
+  {
+    id: 5,
+    name: "Stellar Rover",
+    description: "All-terrain remote control vehicle for Martian backyard explorations.",
+    price: "$59.90",
+    image: "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80&w=400&h=400",
+  },
+  {
+    id: 6,
+    name: "Snuggle Bear Plus",
+    description: "Ultra-soft companion made from hypoallergenic materials.",
+    price: "$22.00",
+    image: "https://images.unsplash.com/photo-1558066160-c3d31fe96996?auto=format&fit=crop&q=80&w=400&h=400",
+  },
+  {
+    id: 7,
+    name: "Puzzle Cube Master",
+    description: "Speed-cube with magnetic alignment for professional solving.",
+    price: "$18.50",
+    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=400&h=400",
+  },
+  {
+    id: 8,
+    name: "Crystal Cave Dig",
+    description: "Educational excavation kit featuring real gem specimens.",
+    price: "$27.99",
+    image: "https://images.unsplash.com/photo-1531693251408-22bd18973cd7?auto=format&fit=crop&q=80&w=400&h=400",
   },
 ];
 
 export default function ProductGrid() {
+  const [visibleCount, setVisibleCount] = useState(4);
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // Trigger reveal animations when scrolling past
-  const isInView = useInView(containerRef, { once: true, amount: 0.15, margin: "-50px" });
+  const isInView = useInView(containerRef, { once: true, amount: 0.1, margin: "-50px" });
 
-  // Add scroll-linked parallax for the decorative background
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  
-  const bgTransformY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const cardsParallaxY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const loadMore = () => {
+    setVisibleCount(prev => Math.min(prev + 4, allProducts.length));
+  };
+
+  const visibleProducts = allProducts.slice(0, visibleCount);
 
   return (
     <section
       id="products"
       ref={sectionRef}
       style={{
-        padding: "10rem 2rem",
-        background: "var(--bg-primary-light, #F8F9FA)",
+        padding: "6rem 2rem 10rem",
+        background: "#f3f6ff", // Clean surface from design system
         position: "relative",
         zIndex: 10,
-        overflow: "hidden"
       }}
     >
-      {/* Decorative Parallax Background Layer */}
-      <motion.div 
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-10%",
-          width: "60vw",
-          height: "60vw",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0, 123, 255, 0.03) 0%, transparent 70%)",
-          y: bgTransformY,
-          pointerEvents: "none",
-          zIndex: 0
-        }}
-      />
-
       <div
         ref={containerRef}
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1280px",
           margin: "0 auto",
-          position: "relative",
-          zIndex: 1,
-          perspective: "2000px" // Perspective for 3D card flips
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          style={{ textAlign: "center", marginBottom: "6rem" }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{ textAlign: "center", marginBottom: "4rem" }}
         >
-          <motion.div 
-            initial={{ opacity: 0, letterSpacing: "0em" }}
-            animate={isInView ? { opacity: 1, letterSpacing: "0.1em" } : {}}
-            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            style={{ color: "#007BFF", fontSize: "0.875rem", textTransform: "uppercase", marginBottom: "1.5rem", fontWeight: 700 }}
-          >
-            The Collection
-          </motion.div>
-          
-          <div style={{ overflow: "hidden", display: "inline-block" }}>
-            <motion.h2 
-              initial={{ y: "100%" }}
-              animate={isInView ? { y: "0%" } : {}}
-              transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 300, letterSpacing: "-0.03em", margin: 0, color: "#111" }}
-            >
-              Curated Excellence.
-            </motion.h2>
+          <div style={{
+            display: "inline-block",
+            padding: "0.5rem 1.5rem",
+            background: "#e9f1ff",
+            color: "#00618d",
+            borderRadius: "9999px",
+            fontSize: "0.85rem",
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            marginBottom: "1rem"
+          }}>
+            The Digital Playroom
           </div>
+          <h2 style={{
+            fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+            fontWeight: 800,
+            color: "#0d314e",
+            letterSpacing: "-0.02em",
+            margin: 0
+          }}>
+            Curated wonders for <span style={{ color: "#00618d" }}>endless joy</span>.
+          </h2>
         </motion.div>
 
-        <motion.div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "2.5rem",
-            y: cardsParallaxY // Adds a very subtle scroll push to the grid as a whole
-          }}
-        >
-          {products.map((product, index) => (
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+          gap: "2.5rem",
+          marginBottom: "4rem"
+        }}>
+          {visibleProducts.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 80, rotateX: 15, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateX: 0, scale: 1 } : {}}
-              transition={{ 
-                duration: 1.2, 
-                delay: index * 0.15 + 0.3, 
-                ease: [0.16, 1, 0.3, 1] 
-              }}
-              whileHover={{
-                y: -12,
-                borderColor: "rgba(0,0,0,0.12)",
-                boxShadow: `0 25px 50px -12px ${product.glow}`,
-                transition: { duration: 0.5, ease: "easeOut" }
-              }}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover="hover"
               style={{
-                position: "relative",
                 background: "#ffffff",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                borderRadius: "24px",
-                padding: "3.5rem 2rem",
+                borderRadius: "1.5rem",
+                padding: "1.5rem",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-                overflow: "hidden",
+                boxShadow: "0 8px 32px rgba(13, 49, 78, 0.05)",
+                position: "relative",
                 cursor: "pointer",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
-                transformStyle: "preserve-3d"
+                border: "1px solid rgba(0,0,0,0.02)"
+              }}
+              variants={{
+                hover: { y: -8, boxShadow: "0 16px 48px rgba(13, 49, 78, 0.08)" }
               }}
             >
-              {/* Animated bottom border reveal */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={isInView ? { scaleX: 1 } : {}}
-                transition={{
-                  duration: 1,
-                  delay: index * 0.15 + 0.8,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "2px",
-                  background: `linear-gradient(90deg, transparent, ${product.glow}, transparent)`,
-                  transformOrigin: "center center",
-                }}
-              />
-
-              {/* Abstract decorative element in place of product image */}
-              <motion.div
-                className="product-abstract-circle"
-                style={{
-                  width: "140px",
-                  height: "140px",
-                  borderRadius: "50%",
-                  background: `linear-gradient(135deg, ${product.glow}, transparent)`,
-                  marginBottom: "3rem",
-                  boxShadow: `inset 0 0 30px ${product.color}`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  position: "relative"
-                }}
-                whileHover={{ rotate: 180, scale: 1.05 }}
-                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-              >
+              <div style={{
+                position: "relative",
+                width: "100%",
+                paddingTop: "100%",
+                borderRadius: "1rem",
+                overflow: "hidden",
+                marginBottom: "1.5rem",
+                background: "#f8f9fa"
+              }}>
+                <motion.img
+                  variants={{
+                    hover: { scale: 1.05 }
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  src={product.image}
+                  alt={product.name}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+                
+                {/* Floating Price Tag */}
                 <div style={{
-                  width: "70%",
-                  height: "70%",
-                  borderRadius: "50%",
-                  background: "#ffffff",
-                  opacity: 0.95
-                }} />
-              </motion.div>
+                  position: "absolute",
+                  bottom: "1rem",
+                  right: "1rem",
+                  background: "rgba(255, 255, 255, 0.85)",
+                  backdropFilter: "blur(12px)",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "9999px",
+                  fontWeight: 700,
+                  color: "#0d314e",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
+                }}>
+                  {product.price}
+                </div>
+              </div>
 
-              <h3 style={{ fontSize: "1.6rem", fontWeight: 500, color: "#222", marginBottom: "1.2rem", letterSpacing: "-0.02em" }}>
+              <h3 style={{
+                fontSize: "1.4rem",
+                fontWeight: 700,
+                color: "#0d314e",
+                marginBottom: "0.5rem",
+                lineHeight: 1.2
+              }}>
                 {product.name}
               </h3>
-              <p style={{ fontSize: "1rem", color: "rgba(0,0,0,0.6)", lineHeight: 1.6, marginBottom: "3rem", flexGrow: 1 }}>
+              
+              <p style={{
+                fontSize: "0.95rem",
+                color: "#405e7e",
+                lineHeight: 1.5,
+                marginBottom: "2rem",
+                flexGrow: 1
+              }}>
                 {product.description}
               </p>
-              
-              <div style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: "100%",
-                borderTop: "1px solid rgba(0,0,0,0.06)",
-                paddingTop: "2rem"
-              }}>
-                <span style={{ fontSize: "1.3rem", color: "#111", fontWeight: 500, letterSpacing: "0.01em" }}>
-                  {product.price}
-                </span>
-                <motion.button
-                  whileHover={{ scale: 1.05, background: "#111", color: "#fff" }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{
-                    background: "rgba(0,0,0,0.02)",
-                    border: "1px solid rgba(0,0,0,0.1)",
-                    color: "#222",
-                    padding: "0.7rem 1.4rem",
-                    borderRadius: "50px",
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    cursor: "pointer",
-                    transition: "background 0.3s ease, color 0.3s ease"
-                  }}
-                >
-                  Explore
-                </motion.button>
-              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{
+                  width: "100%",
+                  background: "linear-gradient(to right, #00618d, #75c6ff)",
+                  color: "#ffffff",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  padding: "1rem",
+                  borderRadius: "9999px",
+                  border: "none",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  boxShadow: "0 4px 12px rgba(0, 97, 141, 0.2)"
+                }}
+              >
+                Add to Cart
+              </motion.button>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+
+        {visibleCount < allProducts.length && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <motion.button
+              onClick={loadMore}
+              whileHover={{ scale: 1.05, background: "#00557c" }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                background: "#00618d",
+                color: "#ffffff",
+                padding: "1rem 2.5rem",
+                borderRadius: "9999px",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                border: "none",
+                cursor: "pointer",
+                boxShadow: "0 8px 24px rgba(0, 97, 141, 0.25)",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem"
+              }}
+            >
+              View More Products
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
