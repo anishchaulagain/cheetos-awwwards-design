@@ -12,7 +12,7 @@ const SCROLL_DISTANCE = 5000; // px of scroll travel for the full sequence
 
 function getFrameSrc(index: number): string {
   const num = String(index).padStart(3, "0");
-  return `/horse-run/ezgif-frame-${num}.jpg`;
+  return `/car-mud-frames/ezgif-frame-${num}.jpg`;
 }
 
 /* ──────────────────────── Story Sections ──────────────────────── */
