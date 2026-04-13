@@ -52,7 +52,6 @@ export default function LogoMarquee() {
 
       {/* Infinite scrolling container */}
       <div className="marquee-container">
-        {/* We render the list twice to create the seamless infinite scroll effect */}
         <div className="marquee-content">
           {[...BRANDS, ...BRANDS].map((brand, index) => (
             <div
