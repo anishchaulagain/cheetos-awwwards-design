@@ -39,7 +39,7 @@ export default function Footer() {
                 fontWeight: 600,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.9)",
+                color: "rgba(0,0,0,0.9)",
                 marginBottom: "0.75rem",
               }}
             >
@@ -48,7 +48,7 @@ export default function Footer() {
             <p
               style={{
                 fontSize: "0.85rem",
-                color: "rgba(255,255,255,0.35)",
+                color: "rgba(0,0,0,0.6)",
                 maxWidth: "280px",
                 lineHeight: 1.6,
               }}
@@ -63,7 +63,7 @@ export default function Footer() {
             <div>
               <div
                 className="caption"
-                style={{ marginBottom: "1rem", color: "rgba(255,255,255,0.25)" }}
+                style={{ marginBottom: "1rem", color: "rgba(0,0,0,0.5)" }}
               >
                 Explore
               </div>
@@ -80,15 +80,15 @@ export default function Footer() {
                     href={link.href}
                     style={{
                       fontSize: "0.85rem",
-                      color: "rgba(255,255,255,0.45)",
+                      color: "rgba(0,0,0,0.6)",
                       textDecoration: "none",
                       transition: "color 0.3s ease",
                     }}
                     onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "rgba(255,255,255,0.8)")
+                      (e.currentTarget.style.color = "rgba(0,0,0,0.9)")
                     }
                     onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "rgba(255,255,255,0.45)")
+                      (e.currentTarget.style.color = "rgba(0,0,0,0.6)")
                     }
                   >
                     {link.label}
@@ -100,7 +100,7 @@ export default function Footer() {
             <div>
               <div
                 className="caption"
-                style={{ marginBottom: "1rem", color: "rgba(255,255,255,0.25)" }}
+                style={{ marginBottom: "1rem", color: "rgba(0,0,0,0.5)" }}
               >
                 Contact
               </div>
@@ -115,15 +115,15 @@ export default function Footer() {
                   href="#"
                   style={{
                     fontSize: "0.85rem",
-                    color: "rgba(255,255,255,0.45)",
+                    color: "rgba(0,0,0,0.6)",
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "rgba(255,255,255,0.8)")
+                    (e.currentTarget.style.color = "rgba(0,0,0,0.9)")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "rgba(255,255,255,0.45)")
+                    (e.currentTarget.style.color = "rgba(0,0,0,0.6)")
                   }
                 >
                   Boutiques
@@ -132,15 +132,15 @@ export default function Footer() {
                   href="#"
                   style={{
                     fontSize: "0.85rem",
-                    color: "rgba(255,255,255,0.45)",
+                    color: "rgba(0,0,0,0.6)",
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "rgba(255,255,255,0.8)")
+                    (e.currentTarget.style.color = "rgba(0,0,0,0.9)")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "rgba(255,255,255,0.45)")
+                    (e.currentTarget.style.color = "rgba(0,0,0,0.6)")
                   }
                 >
                   Customer Service
@@ -149,15 +149,15 @@ export default function Footer() {
                   href="#"
                   style={{
                     fontSize: "0.85rem",
-                    color: "rgba(255,255,255,0.45)",
+                    color: "rgba(0,0,0,0.6)",
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "rgba(255,255,255,0.8)")
+                    (e.currentTarget.style.color = "rgba(0,0,0,0.9)")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "rgba(255,255,255,0.45)")
+                    (e.currentTarget.style.color = "rgba(0,0,0,0.6)")
                   }
                 >
                   Press
@@ -170,7 +170,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           style={{
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid rgba(0,0,0,0.1)",
             paddingTop: "2rem",
             display: "flex",
             justifyContent: "space-between",
@@ -182,7 +182,7 @@ export default function Footer() {
           <span
             style={{
               fontSize: "0.75rem",
-              color: "rgba(255,255,255,0.2)",
+              color: "rgba(0,0,0,0.5)",
             }}
           >
             © {currentYear} ANISH Watches. All rights reserved.
@@ -192,15 +192,15 @@ export default function Footer() {
               href="#"
               style={{
                 fontSize: "0.75rem",
-                color: "rgba(255,255,255,0.2)",
+                color: "rgba(0,0,0,0.5)",
                 textDecoration: "none",
                 transition: "color 0.3s",
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "rgba(255,255,255,0.5)")
+                (e.currentTarget.style.color = "rgba(0,0,0,0.8)")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "rgba(255,255,255,0.2)")
+                (e.currentTarget.style.color = "rgba(0,0,0,0.5)")
               }
             >
               Privacy
@@ -209,15 +209,15 @@ export default function Footer() {
               href="#"
               style={{
                 fontSize: "0.75rem",
-                color: "rgba(255,255,255,0.2)",
+                color: "rgba(0,0,0,0.5)",
                 textDecoration: "none",
                 transition: "color 0.3s",
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "rgba(255,255,255,0.5)")
+                (e.currentTarget.style.color = "rgba(0,0,0,0.8)")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "rgba(255,255,255,0.2)")
+                (e.currentTarget.style.color = "rgba(0,0,0,0.5)")
               }
             >
               Terms
@@ -226,15 +226,15 @@ export default function Footer() {
               href="#"
               style={{
                 fontSize: "0.75rem",
-                color: "rgba(255,255,255,0.2)",
+                color: "rgba(0,0,0,0.5)",
                 textDecoration: "none",
                 transition: "color 0.3s",
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "rgba(255,255,255,0.5)")
+                (e.currentTarget.style.color = "rgba(0,0,0,0.8)")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "rgba(255,255,255,0.2)")
+                (e.currentTarget.style.color = "rgba(0,0,0,0.5)")
               }
             >
               Legal

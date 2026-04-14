@@ -93,7 +93,7 @@ export default function LogoMarquee() {
           100% {
             /* Since the content is exactly half the total width, translating by -50% creates a perfect loop */
             transform: translateX(-50%);
-          }
+          }n
         }
       `}</style>
     </div>
